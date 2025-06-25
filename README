@@ -1,0 +1,27 @@
+🔗 LynkrBox
+LynkrBox is a lightweight and minimal link-saving desktop app for Windows.
+No cloud. No accounts. Just your personal collection of links — stored locally.
+
+✨ Features
+➕ Add new links using the input field
+
+🖱 Open any link by double-clicking it
+
+🗑 Delete links via right-click context menu
+
+📥 Import links from a JSON file
+
+📤 Export links to a JSON file
+
+✅ Only http:// and https:// URLs are allowed
+
+💾 Local Storage
+All links are stored in a local links.json file located in the app’s folder.
+The format is plain and human-readable JSON.
+
+🚀 Getting Started
+Clone the repository
+
+Open the solution in Visual Studio 2022+
+
+Build and run the project (Ctrl + F5)
