@@ -19,15 +19,29 @@ namespace LinkSaver
             LinkList.ItemsSource = links;
         }
 
+        private bool IsValidUrl(string url)
+        {
+            return url.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                   url.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+        }
+
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(UrlBox.Text))
+            string input = UrlBox.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(input))
+                return;
+
+            if (!IsValidUrl(input))
             {
-                links.Add(new LinkItem { Url = UrlBox.Text.Trim() });
-                RefreshList();
-                LinkStorage.Save(links);
-                UrlBox.Clear();
+                MessageBox.Show("Only links starting with http:// or https:// are allowed.", "Invalid URL", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
+
+            links.Add(new LinkItem { Url = input });
+            RefreshList();
+            LinkStorage.Save(links);
+            UrlBox.Clear();
         }
 
         private void LinkList_DoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
