@@ -1,7 +1,7 @@
 <Window x:Class="LinkSaver.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LinkSaver" Height="450" Width="350">
+        Title="LynkrBox" Height="450" Width="350">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
