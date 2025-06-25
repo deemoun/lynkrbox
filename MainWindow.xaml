@@ -1,0 +1,37 @@
+<Window x:Class="LinkSaver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LinkSaver" Height="450" Width="350">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Импорт" Click="Import_Click"/>
+                <MenuItem Header="Экспорт" Click="Export_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid DockPanel.Dock="Top" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="UrlBox" Grid.Column="0" Margin="0,0,5,0"/>
+            <Button x:Name="AddButton" Content="+" Grid.Column="1" Width="30" Click="Add_Click"/>
+        </Grid>
+
+        <ListBox x:Name="LinkList" Margin="5" MouseDoubleClick="LinkList_DoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Url}">
+                        <TextBlock.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Удалить" Click="Delete_Click"/>
+                            </ContextMenu>
+                        </TextBlock.ContextMenu>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</Window>
